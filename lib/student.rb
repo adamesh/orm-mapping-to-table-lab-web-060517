@@ -15,6 +15,12 @@ class Student
     @id = id
   end
 
+  def self.create(attr_hash)
+    new_student = Student.new(attr_hash[:name], attr_hash[:grade])
+    new_student.save
+    new_student
+  end
+
   def self.create_table
     sql = "CREATE TABLE students (
       id INTEGER PRIMARY KEY,
